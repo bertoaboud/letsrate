@@ -28,7 +28,6 @@ module Helpers
                 "data-readonly" => readonly,
                 "data-star-count" => star
   end
-
 end
 
 class ActionView::Base

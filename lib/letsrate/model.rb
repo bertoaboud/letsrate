@@ -25,7 +25,12 @@ module Letsrate
     rating_cache.avg = all_rates.map(&:stars).sum.to_f / rating_cache.qty
     rating_cache.save! 
   end                               
-  
+
+  def count_rates()
+    all_rates = Rate.where(:rateable_id => self.id, :rateable_type => self.class.name)
+    all_rates.count
+  end
+
   def average(dimension=nil)
     if dimension.nil?
       self.send "rate_average_without_dimension"
